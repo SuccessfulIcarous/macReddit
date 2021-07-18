@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,11 @@
 		84C5016A268F74A20015735F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C50169268F74A20015735F /* ContentView.swift */; };
 		84C5016C268F74A60015735F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84C5016B268F74A60015735F /* Assets.xcassets */; };
 		84C5016F268F74A60015735F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84C5016E268F74A60015735F /* Preview Assets.xcassets */; };
+		84C50179268F78980015735F /* iReddtrLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 84C50178268F78980015735F /* iReddtrLibrary */; };
+		84D9EEBF26A3EC440008D926 /* SearchSubRedditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9EEBE26A3EC440008D926 /* SearchSubRedditView.swift */; };
+		84D9EEC226A432680008D926 /* NetworkImage in Frameworks */ = {isa = PBXBuildFile; productRef = 84D9EEC126A432680008D926 /* NetworkImage */; };
+		84D9EEC426A432FD0008D926 /* SubRedditSearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9EEC326A432FD0008D926 /* SubRedditSearchResultView.swift */; };
+		84D9EEC626A435380008D926 /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9EEC526A435380008D926 /* TextStyles.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +26,9 @@
 		84C5016E268F74A60015735F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		84C50170268F74A60015735F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84C50171268F74A60015735F /* macReddtr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macReddtr.entitlements; sourceTree = "<group>"; };
+		84D9EEBE26A3EC440008D926 /* SearchSubRedditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSubRedditView.swift; sourceTree = "<group>"; };
+		84D9EEC326A432FD0008D926 /* SubRedditSearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubRedditSearchResultView.swift; sourceTree = "<group>"; };
+		84D9EEC526A435380008D926 /* TextStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyles.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +36,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84C50179268F78980015735F /* iReddtrLibrary in Frameworks */,
+				84D9EEC226A432680008D926 /* NetworkImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,10 +65,13 @@
 			children = (
 				84C50167268F74A20015735F /* macReddtrApp.swift */,
 				84C50169268F74A20015735F /* ContentView.swift */,
+				84D9EEBE26A3EC440008D926 /* SearchSubRedditView.swift */,
 				84C5016B268F74A60015735F /* Assets.xcassets */,
 				84C50170268F74A60015735F /* Info.plist */,
 				84C50171268F74A60015735F /* macReddtr.entitlements */,
 				84C5016D268F74A60015735F /* Preview Content */,
+				84D9EEC326A432FD0008D926 /* SubRedditSearchResultView.swift */,
+				84D9EEC526A435380008D926 /* TextStyles.swift */,
 			);
 			path = macReddtr;
 			sourceTree = "<group>";
@@ -87,6 +100,10 @@
 			dependencies = (
 			);
 			name = macReddtr;
+			packageProductDependencies = (
+				84C50178268F78980015735F /* iReddtrLibrary */,
+				84D9EEC126A432680008D926 /* NetworkImage */,
+			);
 			productName = macReddtr;
 			productReference = 84C50164268F74A20015735F /* macReddtr.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +131,10 @@
 				Base,
 			);
 			mainGroup = 84C5015B268F74A20015735F;
+			packageReferences = (
+				84C50177268F78980015735F /* XCRemoteSwiftPackageReference "iReddtrLibrary" */,
+				84D9EEC026A432680008D926 /* XCRemoteSwiftPackageReference "NetworkImage" */,
+			);
 			productRefGroup = 84C50165268F74A20015735F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -140,6 +161,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84D9EEC426A432FD0008D926 /* SubRedditSearchResultView.swift in Sources */,
+				84D9EEBF26A3EC440008D926 /* SearchSubRedditView.swift in Sources */,
+				84D9EEC626A435380008D926 /* TextStyles.swift in Sources */,
 				84C5016A268F74A20015735F /* ContentView.swift in Sources */,
 				84C50168268F74A20015735F /* macReddtrApp.swift in Sources */,
 			);
@@ -333,6 +357,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		84C50177268F78980015735F /* XCRemoteSwiftPackageReference "iReddtrLibrary" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "file:///Volumes/Dev/iReddtrLibrary";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		84D9EEC026A432680008D926 /* XCRemoteSwiftPackageReference "NetworkImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/gonzalezreal/NetworkImage";
+			requirement = {
+				kind = exactVersion;
+				version = 3.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		84C50178268F78980015735F /* iReddtrLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 84C50177268F78980015735F /* XCRemoteSwiftPackageReference "iReddtrLibrary" */;
+			productName = iReddtrLibrary;
+		};
+		84D9EEC126A432680008D926 /* NetworkImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 84D9EEC026A432680008D926 /* XCRemoteSwiftPackageReference "NetworkImage" */;
+			productName = NetworkImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 84C5015C268F74A20015735F /* Project object */;
 }

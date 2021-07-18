@@ -1,0 +1,43 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "combine-schedulers",
+        "repositoryURL": "https://github.com/pointfreeco/combine-schedulers",
+        "state": {
+          "branch": null,
+          "revision": "c37e5ae8012fb654af776cc556ff8ae64398c841",
+          "version": "0.5.0"
+        }
+      },
+      {
+        "package": "iReddtrLibrary",
+        "repositoryURL": "/Volumes/Dev/iReddtrLibrary",
+        "state": {
+          "branch": "main",
+          "revision": "4f95dd3e7a537a58bfc31a96c449662492d59545",
+          "version": null
+        }
+      },
+      {
+        "package": "NetworkImage",
+        "repositoryURL": "https://github.com/gonzalezreal/NetworkImage",
+        "state": {
+          "branch": null,
+          "revision": "d7b018eadd0bbb3b9057cfb5245f26e741855ac6",
+          "version": "3.1.0"
+        }
+      },
+      {
+        "package": "xctest-dynamic-overlay",
+        "repositoryURL": "https://github.com/pointfreeco/xctest-dynamic-overlay",
+        "state": {
+          "branch": null,
+          "revision": "152390e9e78ebbf0d767ee52971d41e7f44f39bc",
+          "version": "0.1.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
