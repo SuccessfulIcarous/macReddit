@@ -10,7 +10,6 @@ import iReddtrLibrary
 import NetworkImage
 
 struct GrayBodyStyle: ViewModifier {
-    
     func body(content: Content) -> some View {
         content
             .font(.body)
@@ -28,7 +27,7 @@ struct SearchSubRedditView: View {
                 TextField("Search SubReddits", text: $query, onEditingChanged: { isEditing in
                     print("\(isEditing)")
                 }, onCommit: {
-                    try? iReddtr(url: "https://asia-southeast2-macredditbackend.cloudfunctions.net/reddit/v1")
+                    try? iReddtr.getInstance()
                         .searchSubreddits(query: query, limit: 10, nsfw: true, onDone: { result in
                             switch result {
                             case .Success(let listing):
@@ -37,6 +36,7 @@ struct SearchSubRedditView: View {
                                     subredditsList.append(contentsOf: data.map { subreddit in
                                         subreddit.data!
                                     })
+                                    print(subredditsList)
                                 }
                             case .Error(let error):
                                 print(error)
@@ -49,7 +49,7 @@ struct SearchSubRedditView: View {
             .padding()
             ScrollView {
                 ForEach(subredditsList) { subreddit in
-                    SubRedditSearchResultView(imageUrl: subreddit.iconImg!, title: subreddit.displayNamePrefixed!, description: subreddit.title!)
+                    SubRedditSearchResultView(imageUrl: subreddit.getSubredditIcon(), title: subreddit.getSubredditName(), description: subreddit.getSubredditShortDesc())
                 }
             }
         }

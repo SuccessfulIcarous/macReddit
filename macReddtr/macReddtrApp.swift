@@ -6,9 +6,14 @@
 //
 
 import SwiftUI
+import iReddtrLibrary
 
 @main
 struct macReddtrApp: App {
+    init() {
+        iReddtr.initAPI()
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
