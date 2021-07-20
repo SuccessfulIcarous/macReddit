@@ -43,25 +43,26 @@ struct SearchSubRedditView: View {
                             }
                         })
                 })
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                .textFieldStyle(RoundedBorderTextFieldStyle())
                 Image(systemName: "magnifyingglass")
             }
             .padding()
+            .frame(height: 50)
             ScrollView {
                 ForEach(subredditsList) { subreddit in
                     SubRedditSearchResultView(imageUrl: subreddit.getSubredditIcon(), title: subreddit.getSubredditName(), description: subreddit.getSubredditShortDesc())
                 }
             }
         }
+        .frame(width: 300)
     }
 }
 
 struct SearchSubRedditView_Previews: PreviewProvider {
     static var previews: some View {
         SearchSubRedditView()
-            .previewLayout(.device)
+            .previewLayout(.fixed(width: 300.0, height: 500.0))
             .padding()
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.gray)
     }
 }

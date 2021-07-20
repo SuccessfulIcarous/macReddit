@@ -22,7 +22,7 @@ struct SubRedditSearchResultView: View {
                 Image("default-reddit")
             }
             .scaledToFit()
-            .frame(width: 100, height: 100)
+            .frame(width: 40, height: 40)
             .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
             VStack(alignment: .leading, spacing: 10) {
                 Text(title)
@@ -34,17 +34,22 @@ struct SubRedditSearchResultView: View {
             Spacer()
         }
         .padding()
+        .background(Color.white)
+        .frame(height: 60)
+        .clipShape(RoundedRectangle(cornerRadius: 10))
+        .padding(.horizontal)
     }
 }
 
 struct SubRedditSearchResultView_Previews: PreviewProvider {
     static var previews: some View {
-        SubRedditSearchResultView(imageUrl: "https://b.thumbs.redditmedia.com/ZiAEtqQcDoI72L601xFToVXnp-VRwALa1ZviwnkZ3jg.png", title: "r/Gunners", description: "The Arsenal on Reddit")
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .previewLayout(.fixed(width: 400.0, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/))
-        
-        SubRedditSearchResultView(imageUrl: "", title: "r/Gunners", description: "The Arsenal on Reddit")
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .previewLayout(.fixed(width: 400.0, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/))
+        ScrollView {
+            SubRedditSearchResultView(imageUrl: "", title: "r/Gunners", description: "The Arsenal on Reddit")
+            SubRedditSearchResultView(imageUrl: "", title: "r/Gunners", description: "The Arsenal on Reddit")
+            SubRedditSearchResultView(imageUrl: "", title: "r/Gunners", description: "The Arsenal on Reddit")
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .previewLayout(.fixed(width: 400.0, height: 400))
+        .background(Color.gray)
     }
 }

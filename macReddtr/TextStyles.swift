@@ -10,13 +10,13 @@ import SwiftUI
 struct SubRedditSearchResultTitle: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .font(.system(.title, design: .serif))
+            .font(.system(.headline, design: .serif))
     }
 }
 
 struct SubRedditSearchResultDesc: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .font(.system(.title2, design: .serif))
+            .font(.system(.subheadline, design: .serif))
     }
 }
