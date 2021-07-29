@@ -7,12 +7,6 @@
 
 import SwiftUI
 
-extension Animation {
-    static func delayAnimation(time: Double) -> Animation {
-        Animation.easeIn.speed(2.0).delay(time)
-    }
-}
-
 struct SidebarView: View {
     @State private var isExpanded: Bool = false
     @State private var showText: Bool = false
@@ -47,62 +41,6 @@ struct SidebarView: View {
                     .overlay(ZStack(alignment: self.isExpanded ? .trailing : .center) {
                         Color.black.opacity(self.selectedName == "all" ? 0.5 : 0.0)
                         if self.selectedName == "all" {
-                            Image(systemName: "checkmark.circle.fill")
-                                .font(.largeTitle)
-                                .foregroundColor(Color.white)
-                                .padding(.trailing, self.isExpanded ? 5 : 0)
-                        }
-                    })
-                    .background(Color.white)
-                    .clipShape(RoundedRectangle(cornerRadius: 5))
-                    HStack {
-                        Image("default-reddit")
-                            .scaledToFit()
-                            .frame(width: 40, height: 40)
-                            .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                        if self.showText {
-                            Text("r/Gunners")
-                            Spacer()
-                        }
-                    }
-                    .contentShape(Rectangle())
-                    .onTapGesture(perform: {
-                        withAnimation {
-                            self.selectedName = "gunners"
-                        }
-                    })
-                    .padding(5)
-                    .overlay(ZStack(alignment: self.isExpanded ? .trailing : .center) {
-                        Color.black.opacity(self.selectedName == "gunners" ? 0.5 : 0.0)
-                        if self.selectedName == "gunners" {
-                            Image(systemName: "checkmark.circle.fill")
-                                .font(.largeTitle)
-                                .foregroundColor(Color.white)
-                                .padding(.trailing, self.isExpanded ? 5 : 0)
-                        }
-                    })
-                    .background(Color.white)
-                    .clipShape(RoundedRectangle(cornerRadius: 5))
-                    HStack {
-                        Image("default-reddit")
-                            .scaledToFit()
-                            .frame(width: 40, height: 40)
-                            .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                        if self.showText {
-                            Text("r/soccer")
-                            Spacer()
-                        }
-                    }
-                    .contentShape(Rectangle())
-                    .onTapGesture(perform: {
-                        withAnimation {
-                            self.selectedName = "soccer"
-                        }
-                    })
-                    .padding(5)
-                    .overlay(ZStack(alignment: self.isExpanded ? .trailing : .center) {
-                        Color.black.opacity(self.selectedName == "soccer" ? 0.5 : 0.0)
-                        if self.selectedName == "soccer" {
                             Image(systemName: "checkmark.circle.fill")
                                 .font(.largeTitle)
                                 .foregroundColor(Color.white)

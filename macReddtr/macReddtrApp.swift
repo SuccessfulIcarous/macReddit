@@ -10,13 +10,15 @@ import iReddtrLibrary
 
 @main
 struct macReddtrApp: App {
+    @StateObject private var store = GlobalStore()
+    
     init() {
-        iReddtr.initAPI()
     }
     
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(store)
         }
     }
 }

@@ -7,22 +7,49 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84054E0126B310350094CC85 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84054E0026B310350094CC85 /* Post.swift */; };
 		844B8B8C26A65BC1005D3118 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844B8B8B26A65BC1005D3118 /* SidebarView.swift */; };
 		844B8B8E26A65BED005D3118 /* SubRedditDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844B8B8D26A65BED005D3118 /* SubRedditDetailView.swift */; };
+		848D286026B31F490090D0B9 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848D285F26B31F490090D0B9 /* SampleData.swift */; };
+		848D286326B327030090D0B9 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 848D286226B327030090D0B9 /* MarkdownUI */; };
 		84C50168268F74A20015735F /* macReddtrApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C50167268F74A20015735F /* macReddtrApp.swift */; };
 		84C5016A268F74A20015735F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C50169268F74A20015735F /* ContentView.swift */; };
 		84C5016C268F74A60015735F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84C5016B268F74A60015735F /* Assets.xcassets */; };
 		84C5016F268F74A60015735F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84C5016E268F74A60015735F /* Preview Assets.xcassets */; };
-		84C50179268F78980015735F /* iReddtrLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 84C50178268F78980015735F /* iReddtrLibrary */; };
 		84D9EEBF26A3EC440008D926 /* SearchSubRedditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9EEBE26A3EC440008D926 /* SearchSubRedditView.swift */; };
 		84D9EEC226A432680008D926 /* NetworkImage in Frameworks */ = {isa = PBXBuildFile; productRef = 84D9EEC126A432680008D926 /* NetworkImage */; };
 		84D9EEC426A432FD0008D926 /* SubRedditSearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9EEC326A432FD0008D926 /* SubRedditSearchResultView.swift */; };
 		84D9EEC626A435380008D926 /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9EEC526A435380008D926 /* TextStyles.swift */; };
+		84ECEB2526AC0AB700C55852 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ECEB2426AC0AB700C55852 /* AppViewModel.swift */; };
+		84ECEB2726AC0E3700C55852 /* SidebarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ECEB2626AC0E3700C55852 /* SidebarItemView.swift */; };
+		84ECEB2A26AC1E2000C55852 /* IRedditAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ECEB2926AC1E2000C55852 /* IRedditAPI.swift */; };
+		84ECEB2C26AC1E4800C55852 /* RedditAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ECEB2B26AC1E4800C55852 /* RedditAPI.swift */; };
+		84ECEB3026AC1E9600C55852 /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ECEB2F26AC1E9600C55852 /* Listing.swift */; };
+		84ECEB3226AC1EAB00C55852 /* Subreddit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ECEB3126AC1EAB00C55852 /* Subreddit.swift */; };
+		84ECEB3426AC1EE700C55852 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ECEB3326AC1EE700C55852 /* Utils.swift */; };
+		84ECEB3626AC1F1A00C55852 /* OfflineDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ECEB3526AC1F1A00C55852 /* OfflineDataSource.swift */; };
+		84ECEB3826AC3F7D00C55852 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ECEB3726AC3F7D00C55852 /* Endpoint.swift */; };
+		84ECEB5C26AC791B00C55852 /* macReddtrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ECEB5B26AC791B00C55852 /* macReddtrTests.swift */; };
+		84ECEB6526AC795900C55852 /* InMemoryOfflineDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ECEB6426AC795900C55852 /* InMemoryOfflineDataSourceTests.swift */; };
+		84ECEB6826AD208900C55852 /* GlobalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ECEB6726AD208900C55852 /* GlobalStore.swift */; };
+		84ECEB6A26AD667400C55852 /* URLComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ECEB6926AD667400C55852 /* URLComponents.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		84ECEB5E26AC791B00C55852 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84C5015C268F74A20015735F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84C50163268F74A20015735F;
+			remoteInfo = macReddtr;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		84054E0026B310350094CC85 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		844B8B8B26A65BC1005D3118 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		844B8B8D26A65BED005D3118 /* SubRedditDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubRedditDetailView.swift; sourceTree = "<group>"; };
+		848D285F26B31F490090D0B9 /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		84C50164268F74A20015735F /* macReddtr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macReddtr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C50167268F74A20015735F /* macReddtrApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macReddtrApp.swift; sourceTree = "<group>"; };
 		84C50169268F74A20015735F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -33,6 +60,21 @@
 		84D9EEBE26A3EC440008D926 /* SearchSubRedditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSubRedditView.swift; sourceTree = "<group>"; };
 		84D9EEC326A432FD0008D926 /* SubRedditSearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubRedditSearchResultView.swift; sourceTree = "<group>"; };
 		84D9EEC526A435380008D926 /* TextStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyles.swift; sourceTree = "<group>"; };
+		84ECEB2426AC0AB700C55852 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
+		84ECEB2626AC0E3700C55852 /* SidebarItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarItemView.swift; sourceTree = "<group>"; };
+		84ECEB2926AC1E2000C55852 /* IRedditAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRedditAPI.swift; sourceTree = "<group>"; };
+		84ECEB2B26AC1E4800C55852 /* RedditAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditAPI.swift; sourceTree = "<group>"; };
+		84ECEB2F26AC1E9600C55852 /* Listing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
+		84ECEB3126AC1EAB00C55852 /* Subreddit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subreddit.swift; sourceTree = "<group>"; };
+		84ECEB3326AC1EE700C55852 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		84ECEB3526AC1F1A00C55852 /* OfflineDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineDataSource.swift; sourceTree = "<group>"; };
+		84ECEB3726AC3F7D00C55852 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		84ECEB5926AC791B00C55852 /* macReddtrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = macReddtrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		84ECEB5B26AC791B00C55852 /* macReddtrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macReddtrTests.swift; sourceTree = "<group>"; };
+		84ECEB5D26AC791B00C55852 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84ECEB6426AC795900C55852 /* InMemoryOfflineDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryOfflineDataSourceTests.swift; sourceTree = "<group>"; };
+		84ECEB6726AD208900C55852 /* GlobalStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalStore.swift; sourceTree = "<group>"; };
+		84ECEB6926AD667400C55852 /* URLComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLComponents.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,8 +82,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84C50179268F78980015735F /* iReddtrLibrary in Frameworks */,
 				84D9EEC226A432680008D926 /* NetworkImage in Frameworks */,
+				848D286326B327030090D0B9 /* MarkdownUI in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84ECEB5626AC791B00C55852 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				84C50166268F74A20015735F /* macReddtr */,
+				84ECEB5A26AC791B00C55852 /* macReddtrTests */,
 				84C50165268F74A20015735F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -60,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				84C50164268F74A20015735F /* macReddtr.app */,
+				84ECEB5926AC791B00C55852 /* macReddtrTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -67,6 +118,8 @@
 		84C50166268F74A20015735F /* macReddtr */ = {
 			isa = PBXGroup;
 			children = (
+				84ECEB6626AD200D00C55852 /* States */,
+				84ECEB2826AC1DF700C55852 /* RedditAPI */,
 				84C50167268F74A20015735F /* macReddtrApp.swift */,
 				84C50169268F74A20015735F /* ContentView.swift */,
 				84D9EEBE26A3EC440008D926 /* SearchSubRedditView.swift */,
@@ -78,6 +131,8 @@
 				84D9EEC526A435380008D926 /* TextStyles.swift */,
 				844B8B8B26A65BC1005D3118 /* SidebarView.swift */,
 				844B8B8D26A65BED005D3118 /* SubRedditDetailView.swift */,
+				84ECEB2426AC0AB700C55852 /* AppViewModel.swift */,
+				84ECEB2626AC0E3700C55852 /* SidebarItemView.swift */,
 			);
 			path = macReddtr;
 			sourceTree = "<group>";
@@ -88,6 +143,65 @@
 				84C5016E268F74A60015735F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		84ECEB2826AC1DF700C55852 /* RedditAPI */ = {
+			isa = PBXGroup;
+			children = (
+				84ECEB2E26AC1E7600C55852 /* Extensions */,
+				84ECEB2D26AC1E5F00C55852 /* Models */,
+				84ECEB2926AC1E2000C55852 /* IRedditAPI.swift */,
+				84ECEB2B26AC1E4800C55852 /* RedditAPI.swift */,
+				84ECEB3326AC1EE700C55852 /* Utils.swift */,
+				84ECEB3526AC1F1A00C55852 /* OfflineDataSource.swift */,
+				848D285F26B31F490090D0B9 /* SampleData.swift */,
+			);
+			path = RedditAPI;
+			sourceTree = "<group>";
+		};
+		84ECEB2D26AC1E5F00C55852 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				84ECEB2F26AC1E9600C55852 /* Listing.swift */,
+				84ECEB3126AC1EAB00C55852 /* Subreddit.swift */,
+				84ECEB3726AC3F7D00C55852 /* Endpoint.swift */,
+				84054E0026B310350094CC85 /* Post.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		84ECEB2E26AC1E7600C55852 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				84ECEB6926AD667400C55852 /* URLComponents.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		84ECEB5A26AC791B00C55852 /* macReddtrTests */ = {
+			isa = PBXGroup;
+			children = (
+				84ECEB6326AC793500C55852 /* RedditAPI */,
+				84ECEB5B26AC791B00C55852 /* macReddtrTests.swift */,
+				84ECEB5D26AC791B00C55852 /* Info.plist */,
+			);
+			path = macReddtrTests;
+			sourceTree = "<group>";
+		};
+		84ECEB6326AC793500C55852 /* RedditAPI */ = {
+			isa = PBXGroup;
+			children = (
+				84ECEB6426AC795900C55852 /* InMemoryOfflineDataSourceTests.swift */,
+			);
+			path = RedditAPI;
+			sourceTree = "<group>";
+		};
+		84ECEB6626AD200D00C55852 /* States */ = {
+			isa = PBXGroup;
+			children = (
+				84ECEB6726AD208900C55852 /* GlobalStore.swift */,
+			);
+			path = States;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -107,12 +221,30 @@
 			);
 			name = macReddtr;
 			packageProductDependencies = (
-				84C50178268F78980015735F /* iReddtrLibrary */,
 				84D9EEC126A432680008D926 /* NetworkImage */,
+				848D286226B327030090D0B9 /* MarkdownUI */,
 			);
 			productName = macReddtr;
 			productReference = 84C50164268F74A20015735F /* macReddtr.app */;
 			productType = "com.apple.product-type.application";
+		};
+		84ECEB5826AC791B00C55852 /* macReddtrTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84ECEB6026AC791B00C55852 /* Build configuration list for PBXNativeTarget "macReddtrTests" */;
+			buildPhases = (
+				84ECEB5526AC791B00C55852 /* Sources */,
+				84ECEB5626AC791B00C55852 /* Frameworks */,
+				84ECEB5726AC791B00C55852 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				84ECEB5F26AC791B00C55852 /* PBXTargetDependency */,
+			);
+			name = macReddtrTests;
+			productName = macReddtrTests;
+			productReference = 84ECEB5926AC791B00C55852 /* macReddtrTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -126,6 +258,10 @@
 					84C50163268F74A20015735F = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
+					84ECEB5826AC791B00C55852 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 84C50163268F74A20015735F;
+					};
 				};
 			};
 			buildConfigurationList = 84C5015F268F74A20015735F /* Build configuration list for PBXProject "macReddtr" */;
@@ -138,14 +274,15 @@
 			);
 			mainGroup = 84C5015B268F74A20015735F;
 			packageReferences = (
-				84C50177268F78980015735F /* XCRemoteSwiftPackageReference "iReddtrLibrary" */,
 				84D9EEC026A432680008D926 /* XCRemoteSwiftPackageReference "NetworkImage" */,
+				848D286126B327030090D0B9 /* XCRemoteSwiftPackageReference "MarkdownUI" */,
 			);
 			productRefGroup = 84C50165268F74A20015735F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				84C50163268F74A20015735F /* macReddtr */,
+				84ECEB5826AC791B00C55852 /* macReddtrTests */,
 			);
 		};
 /* End PBXProject section */
@@ -160,6 +297,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		84ECEB5726AC791B00C55852 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -168,16 +312,46 @@
 			buildActionMask = 2147483647;
 			files = (
 				84D9EEC426A432FD0008D926 /* SubRedditSearchResultView.swift in Sources */,
+				84ECEB2726AC0E3700C55852 /* SidebarItemView.swift in Sources */,
 				84D9EEBF26A3EC440008D926 /* SearchSubRedditView.swift in Sources */,
+				848D286026B31F490090D0B9 /* SampleData.swift in Sources */,
+				84ECEB3426AC1EE700C55852 /* Utils.swift in Sources */,
+				84ECEB2526AC0AB700C55852 /* AppViewModel.swift in Sources */,
+				84ECEB3226AC1EAB00C55852 /* Subreddit.swift in Sources */,
 				84D9EEC626A435380008D926 /* TextStyles.swift in Sources */,
+				84ECEB6826AD208900C55852 /* GlobalStore.swift in Sources */,
 				844B8B8E26A65BED005D3118 /* SubRedditDetailView.swift in Sources */,
+				84ECEB6A26AD667400C55852 /* URLComponents.swift in Sources */,
 				84C5016A268F74A20015735F /* ContentView.swift in Sources */,
+				84ECEB2C26AC1E4800C55852 /* RedditAPI.swift in Sources */,
+				84ECEB3826AC3F7D00C55852 /* Endpoint.swift in Sources */,
+				84ECEB3626AC1F1A00C55852 /* OfflineDataSource.swift in Sources */,
 				84C50168268F74A20015735F /* macReddtrApp.swift in Sources */,
+				84ECEB2A26AC1E2000C55852 /* IRedditAPI.swift in Sources */,
+				84054E0126B310350094CC85 /* Post.swift in Sources */,
+				84ECEB3026AC1E9600C55852 /* Listing.swift in Sources */,
 				844B8B8C26A65BC1005D3118 /* SidebarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		84ECEB5526AC791B00C55852 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84ECEB6526AC795900C55852 /* InMemoryOfflineDataSourceTests.swift in Sources */,
+				84ECEB5C26AC791B00C55852 /* macReddtrTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		84ECEB5F26AC791B00C55852 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84C50163268F74A20015735F /* macReddtr */;
+			targetProxy = 84ECEB5E26AC791B00C55852 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		84C50172268F74A60015735F /* Debug */ = {
@@ -345,6 +519,46 @@
 			};
 			name = Release;
 		};
+		84ECEB6126AC791B00C55852 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = YGM92QB9F6;
+				INFOPLIST_FILE = macReddtrTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.live.bratasaputra.macReddtrTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/macReddtr.app/Contents/MacOS/macReddtr";
+			};
+			name = Debug;
+		};
+		84ECEB6226AC791B00C55852 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = YGM92QB9F6;
+				INFOPLIST_FILE = macReddtrTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.live.bratasaputra.macReddtrTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/macReddtr.app/Contents/MacOS/macReddtr";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -366,14 +580,23 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		84ECEB6026AC791B00C55852 /* Build configuration list for PBXNativeTarget "macReddtrTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84ECEB6126AC791B00C55852 /* Debug */,
+				84ECEB6226AC791B00C55852 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		84C50177268F78980015735F /* XCRemoteSwiftPackageReference "iReddtrLibrary" */ = {
+		848D286126B327030090D0B9 /* XCRemoteSwiftPackageReference "MarkdownUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "file:///Volumes/Dev/iReddtrLibrary";
+			repositoryURL = "https://github.com/SuccessfulIcarous/MarkdownUI.git";
 			requirement = {
-				branch = dev;
+				branch = main;
 				kind = branch;
 			};
 		};
@@ -388,10 +611,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		84C50178268F78980015735F /* iReddtrLibrary */ = {
+		848D286226B327030090D0B9 /* MarkdownUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 84C50177268F78980015735F /* XCRemoteSwiftPackageReference "iReddtrLibrary" */;
-			productName = iReddtrLibrary;
+			package = 848D286126B327030090D0B9 /* XCRemoteSwiftPackageReference "MarkdownUI" */;
+			productName = MarkdownUI;
 		};
 		84D9EEC126A432680008D926 /* NetworkImage */ = {
 			isa = XCSwiftPackageProductDependency;

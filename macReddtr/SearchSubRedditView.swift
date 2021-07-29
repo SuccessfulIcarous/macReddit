@@ -27,21 +27,21 @@ struct SearchSubRedditView: View {
                 TextField("Search SubReddits", text: $query, onEditingChanged: { isEditing in
                     print("\(isEditing)")
                 }, onCommit: {
-                    try? iReddtr.getInstance()
-                        .searchSubreddits(query: query, limit: 10, nsfw: true, onDone: { result in
-                            switch result {
-                            case .Success(let listing):
-                                if let data = listing.data?.children {
-                                    subredditsList.removeAll()
-                                    subredditsList.append(contentsOf: data.map { subreddit in
-                                        subreddit.data!
-                                    })
-                                    print(subredditsList)
-                                }
-                            case .Error(let error):
-                                print(error)
-                            }
-                        })
+//                    try? iReddtr.shared
+//                        .searchSubreddits(query: query, limit: 10, nsfw: true, onDone: { result in
+//                            switch result {
+//                            case .Success(let listing):
+//                                if let data = listing.data?.children {
+//                                    subredditsList.removeAll()
+//                                    subredditsList.append(contentsOf: data.map { subreddit in
+//                                        subreddit.data!
+//                                    })
+//                                    print(subredditsList)
+//                                }
+//                            case .Error(let error):
+//                                print(error)
+//                            }
+//                        })
                 })
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 Image(systemName: "magnifyingglass")
@@ -50,7 +50,8 @@ struct SearchSubRedditView: View {
             .frame(height: 50)
             ScrollView {
                 ForEach(subredditsList) { subreddit in
-                    SubRedditSearchResultView(imageUrl: subreddit.getSubredditIcon(), title: subreddit.getSubredditName(), description: subreddit.getSubredditShortDesc())
+                    let sData = subreddit.toSubreddit()
+                    SubRedditSearchResultView(imageUrl: sData.iconImageUrl, title: sData.displayNamePrefixed, description: sData.title)
                 }
             }
         }

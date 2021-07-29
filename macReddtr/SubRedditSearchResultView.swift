@@ -26,15 +26,15 @@ struct SubRedditSearchResultView: View {
             .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
             VStack(alignment: .leading, spacing: 10) {
                 Text(title)
-                    .modifier(SubRedditSearchResultTitle())
+//                    .modifier(SubRedditSearchResultTitle())
                 Text(description)
-                    .modifier(SubRedditSearchResultDesc())
+//                    .modifier(SubRedditSearchResultDesc())
             }
             .padding()
             Spacer()
         }
         .padding()
-        .background(Color.white)
+//        .background(Color.white)
         .frame(height: 60)
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .padding(.horizontal)
