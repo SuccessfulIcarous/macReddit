@@ -9,11 +9,11 @@ import Foundation
 import Combine
 
 protocol IRedditAPI {
-    func searchSubreddits(query: String, limit: Int, nsfw: Bool, resultQueue: DispatchQueue) throws -> AnyPublisher<SubredditListing, Error>
+    func searchSubreddits(query: String, limit: Int, nsfw: Bool, resultQueue: DispatchQueue) -> AnyPublisher<SubredditListing, Error>
     func getFavoritedSubreddits(resultQueue: DispatchQueue) -> AnyPublisher<[Subreddit], Error>
     func markAsFavorite(subReddit: Subreddit, resultQueue: DispatchQueue) -> AnyPublisher<[Subreddit], Error>
-    func getPostsFor(subredditNames: [String], params: APIParam, resultQueue: DispatchQueue) throws -> AnyPublisher<PostListing, Error>
-    func getCommentsFor(postName: String, params: APIParam, resultQueue: DispatchQueue) throws -> AnyPublisher<CommmentListing, Error>
+    func getPostsFor(subredditNames: [String], params: APIParam, resultQueue: DispatchQueue) -> AnyPublisher<PostListing, Error>
+    func getCommentsFor(postName: String, params: APIParam, resultQueue: DispatchQueue) -> AnyPublisher<CommmentListing, Error>
 }
 
 public class APIParam {

@@ -65,7 +65,7 @@ struct SearchSubreddit: View {
                     
                 } onCommit: {
                     print(query)
-                    self.cancellable = try? store.api.searchSubreddits(query: query, limit: 100, nsfw: true, resultQueue: DispatchQueue.main)
+                    self.cancellable = store.api.searchSubreddits(query: query, limit: 100, nsfw: true, resultQueue: DispatchQueue.main)
                         .sink { _ in
                             
                         } receiveValue: { listing in
@@ -140,7 +140,7 @@ struct PostList: View {
                 let param = APIParam()
                     .setLimit(100)
                     .setSortType(.new)
-                self.cancellable = try? store.api.getPostsFor(subredditNames: ["Gunners"], params: param)
+                self.cancellable = store.api.getPostsFor(subredditNames: ["Gunners"], params: param)
                     .sink(receiveCompletion: { _ in
 
                     }, receiveValue: { postlisting in
@@ -171,7 +171,7 @@ struct PostDetail: View {
         }
         .padding()
         .onAppear {
-            self.cancellable = try? self.store.api.getCommentsFor(postName: content.id, params: APIParam())
+            self.cancellable = self.store.api.getCommentsFor(postName: content.id, params: APIParam())
                 .sink(receiveCompletion: { _ in
                     
                 }, receiveValue: { commentListing in

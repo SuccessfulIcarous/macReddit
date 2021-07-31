@@ -19,19 +19,6 @@ public class RedditAPI: IRedditAPI {
     private let _endpoint: Endpoint
     private let _offlineDataSource: OfflineDataSource
     
-//    public func test() -> AnyPublisher<Int, Error> {
-//        Deferred {
-//            Future<String, Error> { promise in
-//                return promise(.success("From Future"))
-//            }
-//        }.map { output1 in
-//            print("output1: \(output1)")
-//        }.map({ <#()#> in
-//            <#code#>
-//        })
-//        .eraseToAnyPublisher()
-//    }
-    
     public func getFavoritedSubreddits(resultQueue: DispatchQueue = DispatchQueue.main) -> AnyPublisher<[Subreddit], Error> {
         _offlineDataSource.getSubscribedSubReddits()
             .receive(on: resultQueue)
@@ -47,7 +34,7 @@ public class RedditAPI: IRedditAPI {
             .eraseToAnyPublisher()
     }
     
-    public func searchSubreddits(query: String, limit: Int, nsfw: Bool, resultQueue: DispatchQueue = DispatchQueue.main) throws -> AnyPublisher<SubredditListing, Error> {
+    public func searchSubreddits(query: String, limit: Int, nsfw: Bool, resultQueue: DispatchQueue = DispatchQueue.main) -> AnyPublisher<SubredditListing, Error> {
         let queryParams: [String: Any] = [
             "raw_json": 1,
             "q": query,
@@ -56,11 +43,11 @@ public class RedditAPI: IRedditAPI {
         ]
         let url = self.getAPIUrl(path: ApiPath.searchSubreddits)
         guard var urlComponents = URLComponents(string: url) else {
-            throw APIError.invalidUrl
+            return Fail(error: APIError.invalidUrl).eraseToAnyPublisher()
         }
         urlComponents.setQueryItems(with: queryParams)
         guard let url = urlComponents.url else {
-            throw APIError.invalidUrl
+            return Fail(error: APIError.invalidUrl).eraseToAnyPublisher()
         }
         let request = self.createGetRequest(url: url)
         return performGet(request)
@@ -68,15 +55,15 @@ public class RedditAPI: IRedditAPI {
             .eraseToAnyPublisher()
     }
     
-    public func getPostsFor(subredditNames: [String], params: APIParam, resultQueue: DispatchQueue = .main) throws -> AnyPublisher<PostListing, Error> {
+    public func getPostsFor(subredditNames: [String], params: APIParam, resultQueue: DispatchQueue = .main) -> AnyPublisher<PostListing, Error> {
         let url = self.getAPIUrl(path: .getSubredditPost, subredditNames: subredditNames, sortType: params.sortType)
         let queryParams = params.asQueryParam()
         guard var urlComponents = URLComponents(string: url) else {
-            throw APIError.invalidUrl
+            return Fail(error: APIError.invalidUrl).eraseToAnyPublisher()
         }
         urlComponents.setQueryItems(with: queryParams)
         guard let finalUrl = urlComponents.url else {
-            throw APIError.invalidUrl
+            return Fail(error: APIError.invalidUrl).eraseToAnyPublisher()
         }
         let request = self.createGetRequest(url: finalUrl)
         return performGet(request)
@@ -84,15 +71,15 @@ public class RedditAPI: IRedditAPI {
             .eraseToAnyPublisher()
     }
     
-    public func getCommentsFor(postName: String, params: APIParam, resultQueue: DispatchQueue = .main) throws -> AnyPublisher<CommmentListing, Error> {
+    public func getCommentsFor(postName: String, params: APIParam, resultQueue: DispatchQueue = .main) -> AnyPublisher<CommmentListing, Error> {
         let url = self.getAPIUrl(path: .getComments, subredditNames: [postName])
         let queryParams = params.asQueryParam()
         guard var urlComponents = URLComponents(string: url) else {
-            throw APIError.invalidUrl
+            return Fail(error: APIError.invalidUrl).eraseToAnyPublisher()
         }
         urlComponents.setQueryItems(with: queryParams)
         guard let finalUrl = urlComponents.url else {
-            throw APIError.invalidUrl
+            return Fail(error: APIError.invalidUrl).eraseToAnyPublisher()
         }
         let request = self.createGetRequest(url: finalUrl)
         return performGetDictionary(request)
