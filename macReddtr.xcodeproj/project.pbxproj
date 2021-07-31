@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		84054E0126B310350094CC85 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84054E0026B310350094CC85 /* Post.swift */; };
+		842EDCAD26B42BF6008F87BC /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842EDCAC26B42BF6008F87BC /* Comment.swift */; };
 		844B8B8C26A65BC1005D3118 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844B8B8B26A65BC1005D3118 /* SidebarView.swift */; };
 		844B8B8E26A65BED005D3118 /* SubRedditDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844B8B8D26A65BED005D3118 /* SubRedditDetailView.swift */; };
 		848D286026B31F490090D0B9 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848D285F26B31F490090D0B9 /* SampleData.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		84054E0026B310350094CC85 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		842EDCAC26B42BF6008F87BC /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		844B8B8B26A65BC1005D3118 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		844B8B8D26A65BED005D3118 /* SubRedditDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubRedditDetailView.swift; sourceTree = "<group>"; };
 		848D285F26B31F490090D0B9 /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				84ECEB3126AC1EAB00C55852 /* Subreddit.swift */,
 				84ECEB3726AC3F7D00C55852 /* Endpoint.swift */,
 				84054E0026B310350094CC85 /* Post.swift */,
+				842EDCAC26B42BF6008F87BC /* Comment.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				84D9EEC626A435380008D926 /* TextStyles.swift in Sources */,
 				84ECEB6826AD208900C55852 /* GlobalStore.swift in Sources */,
 				844B8B8E26A65BED005D3118 /* SubRedditDetailView.swift in Sources */,
+				842EDCAD26B42BF6008F87BC /* Comment.swift in Sources */,
 				84ECEB6A26AD667400C55852 /* URLComponents.swift in Sources */,
 				84C5016A268F74A20015735F /* ContentView.swift in Sources */,
 				84ECEB2C26AC1E4800C55852 /* RedditAPI.swift in Sources */,

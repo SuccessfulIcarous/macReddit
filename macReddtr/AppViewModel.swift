@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import iReddtrLibrary
+//import iReddtrLibrary
 
 class AppViewModel: ObservableObject {
     enum SidebarSelection {

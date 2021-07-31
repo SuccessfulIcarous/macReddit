@@ -13,6 +13,7 @@ protocol IRedditAPI {
     func getFavoritedSubreddits(resultQueue: DispatchQueue) -> AnyPublisher<[Subreddit], Error>
     func markAsFavorite(subReddit: Subreddit, resultQueue: DispatchQueue) -> AnyPublisher<[Subreddit], Error>
     func getPostsFor(subredditNames: [String], params: APIParam, resultQueue: DispatchQueue) throws -> AnyPublisher<PostListing, Error>
+    func getCommentsFor(postName: String, params: APIParam, resultQueue: DispatchQueue) throws -> AnyPublisher<CommmentListing, Error>
 }
 
 public class APIParam {
@@ -45,7 +46,8 @@ public class APIParam {
             "limit": self.limit,
             "include_over_18": self.nsfw ? 1 : 0,
             "after": self.after,
-            "before": self.before
+            "before": self.before,
+            "sort": self.sortType.rawValue
         ]
     }
 }

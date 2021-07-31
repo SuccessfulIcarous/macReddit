@@ -19,7 +19,20 @@ public class RedditAPI: IRedditAPI {
     private let _endpoint: Endpoint
     private let _offlineDataSource: OfflineDataSource
     
-    func getFavoritedSubreddits(resultQueue: DispatchQueue = DispatchQueue.main) -> AnyPublisher<[Subreddit], Error> {
+//    public func test() -> AnyPublisher<Int, Error> {
+//        Deferred {
+//            Future<String, Error> { promise in
+//                return promise(.success("From Future"))
+//            }
+//        }.map { output1 in
+//            print("output1: \(output1)")
+//        }.map({ <#()#> in
+//            <#code#>
+//        })
+//        .eraseToAnyPublisher()
+//    }
+    
+    public func getFavoritedSubreddits(resultQueue: DispatchQueue = DispatchQueue.main) -> AnyPublisher<[Subreddit], Error> {
         _offlineDataSource.getSubscribedSubReddits()
             .receive(on: resultQueue)
             .eraseToAnyPublisher()
@@ -71,6 +84,41 @@ public class RedditAPI: IRedditAPI {
             .eraseToAnyPublisher()
     }
     
+    public func getCommentsFor(postName: String, params: APIParam, resultQueue: DispatchQueue = .main) throws -> AnyPublisher<CommmentListing, Error> {
+        let url = self.getAPIUrl(path: .getComments, subredditNames: [postName])
+        let queryParams = params.asQueryParam()
+        guard var urlComponents = URLComponents(string: url) else {
+            throw APIError.invalidUrl
+        }
+        urlComponents.setQueryItems(with: queryParams)
+        guard let finalUrl = urlComponents.url else {
+            throw APIError.invalidUrl
+        }
+        let request = self.createGetRequest(url: finalUrl)
+        return performGetDictionary(request)
+            .tryMap({ json in
+                let commentListing = json[1]
+                let listing = CommmentListing.createFrom(json: commentListing)
+                return listing ?? CommmentListing(data: nil)
+            })
+            .receive(on: resultQueue)
+            .eraseToAnyPublisher()
+    }
+    
+    func performGetDictionary(_ request: URLRequest) -> AnyPublisher<[[String: Any]], Error> {
+        return URLSession.shared.dataTaskPublisher(for: request)
+            .tryMap { (data: Data, response: URLResponse) in
+                guard let httpResponse = (response as? HTTPURLResponse), (200...299).contains(httpResponse.statusCode) else {
+                    throw APIError.nonOkHttpResponse
+                }
+                guard let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] else {
+                    throw APIError.cannotDeserialiseJson
+                }
+                return json
+            }
+            .eraseToAnyPublisher()
+    }
+    
     func performGet<T : Codable>(_ request: URLRequest) -> AnyPublisher<T, Error> {
         return URLSession.shared.dataTaskPublisher(for: request)
             .tryMap { (data: Data, response: URLResponse) in
@@ -86,6 +134,7 @@ public class RedditAPI: IRedditAPI {
     func getAPIUrl(path: ApiPath, subredditNames: [String] = [], sortType: SortType = .best) -> String {
         let subredditPath = "{subreddits}"
         let sortPath = "{sort}"
+        let postId = "{id}"
         switch path {
         case .searchSubreddits:
             return "\(self._endpoint.rawValue)/api\(path.rawValue)"
@@ -93,6 +142,9 @@ public class RedditAPI: IRedditAPI {
             return "\(self._endpoint.rawValue)/api\(path.rawValue)"
                 .replacingOccurrences(of: subredditPath, with: subredditNames.joined(separator: "+"))
                 .replacingOccurrences(of: sortPath, with: sortType.rawValue)
+        case .getComments:
+            return "\(self._endpoint.rawValue)/api\(path.rawValue)"
+                .replacingOccurrences(of: postId, with: subredditNames.joined(separator: ""))
         }
     }
     
@@ -117,6 +169,7 @@ public enum APIError: Error {
 enum ApiPath: String {
     case searchSubreddits = "/subreddits/search.json"
     case getSubredditPost = "/r/{subreddits}/{sort}.json"
+    case getComments = "/comments/{id}.json"
 }
 
 public enum SortType: String {

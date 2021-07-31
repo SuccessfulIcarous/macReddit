@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import iReddtrLibrary
+//import iReddtrLibrary
 
 @main
 struct macReddtrApp: App {

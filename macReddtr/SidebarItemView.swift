@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import iReddtrLibrary
+//import iReddtrLibrary
 
 enum IconType {
     struct MenuData {

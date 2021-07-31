@@ -130,9 +130,6 @@ struct PostList: View {
             List {
                 ForEach(self.posts) { post in
                     NavigationLink(post.title, destination: PostDetail(content: post), tag: post.id, selection: $selected)
-                        .onAppear {
-                            print(post)
-                        }
                     
                 }
             }
@@ -145,7 +142,7 @@ struct PostList: View {
                     .setSortType(.new)
                 self.cancellable = try? store.api.getPostsFor(subredditNames: ["Gunners"], params: param)
                     .sink(receiveCompletion: { _ in
-                        
+
                     }, receiveValue: { postlisting in
                         if let listingData = postlisting.data?.children {
                             self.posts = listingData.map({ $0.data!.toPost() })
@@ -159,12 +156,87 @@ struct PostList: View {
 
 struct PostDetail: View {
     let content: Post
+    @State private var comments: [CommentData] = []
+    @State private var cancellable: AnyCancellable?
+    @EnvironmentObject private var store: GlobalStore
     
     var body: some View {
         ScrollView {
             Markdown(Document(content.selftext))
+            ForEach(comments) { comment in
+                Comment(comment: comment, depth: 0)
+                    .onAppear {
+                    }
+            }
         }
         .padding()
+        .onAppear {
+            self.cancellable = try? self.store.api.getCommentsFor(postName: content.id, params: APIParam())
+                .sink(receiveCompletion: { _ in
+                    
+                }, receiveValue: { commentListing in
+                    if let listing = commentListing.data?.children {
+                        self.comments = listing.compactMap({ commentKind in
+                            commentKind.data
+                        })
+                    }
+                    self.cancellable = nil
+                })
+        }
+    }
+}
+
+struct Comment: View {
+    let comment: CommentData
+    let depth: Int
+    @State private var hideReplies = false
+    
+    private func getColor(forDepth: Int) -> Color {
+        let colors: [Int: Color] = [
+            1: Color.red,
+            2: Color.blue,
+            3: Color.yellow,
+            4: Color.green,
+            5: Color.orange,
+            6: Color.pink,
+            7: Color.purple,
+        ]
+        return colors[forDepth] ?? Color.gray
+    }
+    
+    var body: some View {
+        VStack(spacing: 0) {
+            ZStack {
+                HStack {
+                    Markdown("\(comment.body ?? "")")
+                        .padding()
+                    Button(action: {
+                        withAnimation {
+                            self.hideReplies.toggle()
+                        }
+                    }, label: {
+                        if hideReplies {
+                            Image(systemName: "chevron.down.circle.fill")
+                        } else {
+                            Image(systemName: "chevron.up.circle.fill")
+                        }
+                    })
+                    .padding()
+                    .buttonStyle(PlainButtonStyle())
+                }
+                .background(Color(NSColor.windowBackgroundColor))
+                .padding(.leading, CGFloat(depth == 0 ? 0 : 5))
+            }
+            .background(getColor(forDepth: depth))
+            .padding(.leading, CGFloat(depth * 10))
+            if let replies = comment.replies?.data?.children?.compactMap({ x in
+                x.data
+            }), !hideReplies {
+                ForEach(replies) { reply in
+                    Comment(comment: reply, depth: depth + 1)
+                }
+            }
+        }
     }
 }
 
@@ -173,7 +245,7 @@ struct HtmlView: NSViewRepresentable {
     
     func makeNSView(context: Context) -> some NSView {
         return WKWebView()
-            
+        
     }
     
     func updateNSView(_ nsView: NSViewType, context: Context) {
@@ -184,6 +256,7 @@ struct HtmlView: NSViewRepresentable {
 struct ContentView: View {
     @EnvironmentObject var store: GlobalStore
     @State private var selected: Menu? = .AllStream
+    @State private var cancellable: AnyCancellable?
     
     var body: some View {
         NavigationView {
@@ -206,6 +279,8 @@ struct ContentView: View {
             .frame(minWidth: 200)
             .listStyle(SidebarListStyle())
         }
+        .onAppear {
+        }
     }
     
 }
@@ -226,6 +301,9 @@ struct ContentView_Previews: PreviewProvider {
             .environmentObject(store)
         
         PostDetail(content: SAMPLE_POST)
+            .environmentObject(store)
+        
+        Comment(comment: SAMPLE_COMMENT, depth: 0)
             .environmentObject(store)
     }
 }
