@@ -123,31 +123,43 @@ struct PostList: View {
     @State var posts: [Post] = []
     @State private var cancellable: AnyCancellable?
     @State private var selected: String?
+    @State private var isLoading: Bool = true
     var isPreview = false
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(self.posts) { post in
-                    NavigationLink(post.title, destination: PostDetail(content: post), tag: post.id, selection: $selected)
-                    
+            if isLoading {
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle())
+            } else {
+                List {
+                    ForEach(self.posts) { post in
+                        NavigationLink(post.title, destination: PostDetail(content: post), tag: post.id, selection: $selected)
+                        
+                    }
                 }
+                .frame(minWidth: 400)
             }
-            .frame(minWidth: 400)
         }
         .onAppear {
             if !self.isPreview {
                 let param = APIParam()
                     .setLimit(100)
                     .setSortType(.new)
-                self.cancellable = store.api.getPostsFor(subredditNames: ["Gunners"], params: param)
+                self.isLoading = true
+                self.cancellable = store.api.getFavoritedSubreddits()
+                    .flatMap({ subreddits in
+                        store.api.getPostsFor(subredditNames: subreddits.map({ $0.displayName }), params: param)
+                    })
                     .sink(receiveCompletion: { _ in
-
+                        self.cancellable = nil
+                        self.isLoading = false
                     }, receiveValue: { postlisting in
                         if let listingData = postlisting.data?.children {
                             self.posts = listingData.map({ $0.data!.toPost() })
                         }
                         self.cancellable = nil
+                        self.isLoading = false
                     })
             }
         }
